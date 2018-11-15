@@ -77,8 +77,38 @@ const Adagrams = {
     if (word.length > 6) {
       score += 8;
     }
-
+    // console.log(typeof(score));
+    // console.log(score);
     return score;
+  },
+
+  highestScoreFrom(words) {
+    let winningScore = {
+      word: "",
+      score: 0
+    };
+
+    words.forEach((word) => {
+      const score = this.scoreWord(word);
+      // console.log(score);
+
+      if (score > winningScore.score) {
+        winningScore.score = score;
+        // console.log(score);
+        winningScore.word = word;
+        // console.log(word);
+      }
+      else if (score == winningScore.score) {
+        if (word.length == 10 && winningScore.word.length != 10) {
+          winningScore.word = word;
+        }
+        else if (word.length < winningScore.word.length && winningScore.word.length != 10) {
+          winningScore.word = word;
+        }
+      }
+    });
+
+    return winningScore;
   }
 };
 
