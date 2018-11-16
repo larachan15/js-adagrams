@@ -48,6 +48,8 @@ describe('Adagrams', () => {
   describe('scoreWord', () => {
     const expectScores = (wordScores) => {
       Object.entries(wordScores).forEach(([word, score]) => {
+        // console.log(word);
+        // console.log(Adagrams.scoreWord(word));
         expect(Adagrams.scoreWord(word)).toBe(score);
       });
     };

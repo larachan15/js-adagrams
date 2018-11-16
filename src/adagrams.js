@@ -38,6 +38,8 @@ const Adagrams = {
     const lettersInHandMap = {};
     // ['A', 'A', 'B', 'N'] => { 'A': 2, 'B': 1, 'N': 1 }
     lettersInHand.forEach((letter) => {
+      // let upcaseLetter = letter.toUpperCase();
+      // console.log(letter);
       if (lettersInHandMap[letter]) {
         lettersInHandMap[letter] += 1;
       }
@@ -69,16 +71,18 @@ const Adagrams = {
       "Q": 10, "Z": 10
     };
     let score = 0;
+    // let upcaseLetter = letter.toUpperCase();
 
     for (let i = 0; i < word.length; i++) {
-      score += scoreChart[word[i]];
+      let upcaseLetter = word.toUpperCase();
+      score += scoreChart[upcaseLetter[i]];
     }
 
     if (word.length > 6) {
       score += 8;
+
     }
     // console.log(typeof(score));
-    // console.log(score);
     return score;
   },
 
